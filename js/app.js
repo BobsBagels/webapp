@@ -25,7 +25,10 @@ var Router = Backbone.Router.extend({
       trace(jqXHR, textStatus, errorThrown);
     });
 
-    
+    $("#line-items").on("submit","form.update-line-item", function(e){
+      LineItemSubmission.updateItem(e);
+    });
+
     $("#clear-cart").on("submit",function(e){
       Cart.clearCart(e,router);
     });
@@ -47,6 +50,7 @@ var getLineItems = function(object){
       url: 'http://localhost:3000/line_items/'+item.id,
       type: 'GET',
     }).done(function(response){
+      // trace(response);
       var template = Handlebars.compile($("#lineItemTemplate").html());
       $("#line-items").append(template({
         item: response
@@ -54,13 +58,13 @@ var getLineItems = function(object){
     }).fail(function(jqXHR, textStatus, errorThrown){
       trace(jqXHR, textStatus, errorThrown);
     });
-    
+
   });
 };
 
 $(document).ready(function(){
-  if ((Cookie.getCookie("cart_id") == "null") || (Cookie.getCookie("cart_id") == undefined)) {
-    Cookie.getCartId()
+  if ((Cookie.getCookie("cart_id") === "null") || (Cookie.getCookie("cart_id") === undefined) || (Cookie.getCookie("cart_id") === null)) {
+    Cookie.getCartId();
   } else {
     var id = Cookie.getCookie("cart_id");
     $.ajax({
@@ -68,8 +72,7 @@ $(document).ready(function(){
       type: 'GET',
     })
     .done(function(response) {
-      // trace(response);
-      getLineItems(response)
+      getLineItems(response);
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       trace(jqXHR, textStatus, errorThrown);
@@ -77,7 +80,14 @@ $(document).ready(function(){
     .always(function() {
       // trace("complete");
     });
+
   }
+  $("#price_total").on("click",function(event){
+    Cart.updateTotalCartPrice();
+  });
+  $("#updateCart").on("click",function(event){
+    Cart.updateCart();
+  });
 });
 
 

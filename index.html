@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <!-- <nav class="navbar navbar-fixed" role="navigation">
+  <nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -24,14 +24,9 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#/sandwiches">Sandwiches</a></li>
-              <li><a href="#/catering">Catering</a></li>
-              <li><a href="#/beverages">Beverages</a></li>
-            </ul>
-          </li>
+          <li><a href="#Sandwiches-section">Sandwiches</a></li>
+          <li><a href="#Catering-section">Catering</a></li>
+          <li><a href="#Beverages-section">Beverages</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#/about">About Bob</a></li>
@@ -44,29 +39,30 @@
         </ul>
       </div>
     </div>
-  </nav> -->
+  </nav>
 
   <div class="container-fluid">
     <div class="row">
-      <!--  
+      <!--
       <div class="jumbotron header">
         <h1>Bob's Bagels</h1>
-      </div> 
+      </div>
       -->
       <div id="bobs-bagels-menu" class="col-md-6 bobs-bagels-menu">
           <!-- this is where we load Handlebar templates -->
       </div>
       <div class="shopping-cart">
         <h1>Bob does bagels. <small>Buy them here.</small></h1>
-        <form id="clear-cart">
-          <input class="btn btn-default" type="submit" name="empty-cart" value="Empty Cart">
-          <a class="btn btn-default" href="#/checkout">Checkout</a>
-        </form>  
-        
         <div id="line-items">
           <!-- line items go here -->
         </div>
-        
+        <form id="clear-cart">
+          <input class="btn btn-default" type="submit" name="empty-cart" value="Empty Cart">
+          <a class="btn btn-default" href="#/checkout">Checkout</a>
+          <a class="btn btn-info" id="price_total"></a>
+
+        </form>
+
       </div>
     </div>
   </div>
@@ -113,7 +109,7 @@
           <div class="form-group">
             <input id="{{id}}" type="submit" name="Add to Cart" >
             <input type="hidden" value="{{id}}" >
-            <input type="number" value="1">  
+            <input type="number" value="1">
           </div>
         </form>
       </div>
@@ -130,17 +126,17 @@
         </header>
         {{#each products}}
         <div class="product row">
-         
+
           <img src="{{image_url}}" />
           <h2>{{title}}</h2>
           <p>
             <span class="description">{{description}}</span>
-            <span class="product-price"> ${{price}}</span>
+            <span class="product-price"> {{price}}</span>
           </p>
 
           <form class="lineitem_submit">
             <div class="form-group">
-              <span class="quantity">Quantity: <input type="number" value="1"></span>  
+              <span class="quantity">Quantity: <input type="number" value="1"></span>
             </div>
             <div class="form-group">
               <input id="{{id}}" class="btn btn-default add-line-item" type="submit" value="Add to Cart" >
@@ -155,14 +151,15 @@
 
   <!-- line item template -->
   <script type="text/x-handlebars-template" id="lineItemTemplate">
-    <div class="line-item">
+    <div id="{{item.id}}-container" class="line-item">
       <h3>{{item.product.title}}</h3>
       <p>Quantity: <input type="number" value="{{item.quantity}}" class="line-item-quantity"></p>
       <p>{{item.product.description}}</p>
-      <p>{{item.product.price}}</p>
-      <form id="update-line-item">
-
+      <p class="price">{{item.product.price}}</p>
+      <form class="update-line-item">
+        <input class="btn btn-default" type="submit" id="{{item.id}}" value="Update Item" >
       </form>
+      <hr>
     </div>
 
   </script>
