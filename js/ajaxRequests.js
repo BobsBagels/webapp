@@ -178,3 +178,28 @@
     router.navigate("home",{trigger: true});
   });
    
+
+
+// Loop through categories & products to get all the options
+  // ————————————————————————————————————————————————————
+  
+   menu: function(){
+    $.ajax({ url: 'http://localhost:3000/categories', type: 'GET',})
+    .done(function(response){
+      trace(response);
+      var template = Handlebars.compile($("#mainTemplate").html());
+      $("#bobs-bagels-menu").html(template({
+        menu: response
+      }));
+      var $forms = $(".lineitem_submit");
+      $forms.each(function(index,form){
+        $(form).on("submit", function(e){
+          LineItemSubmission.processForm(e,form,router);
+        });
+      });
+    })
+    .fail(function(jqXHR, textStatus, errorThrown){
+      trace(jqXHR, textStatus, errorThrown);
+    });
+
+
