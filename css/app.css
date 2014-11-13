@@ -67,6 +67,9 @@ a.navbar-brand:hover { font-weight: bold; }
 nav.navbar ul li a {
   color: white;
 }
+a.navbar:hover {
+  background-color: green;
+}
 
 /* HEADER */
 /*——————————————————————————————————————*/
