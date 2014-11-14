@@ -84,6 +84,7 @@
   <script src="js/cookies.js" ></script>
   <script src="js/orderSubmission.js"></script>
   <script src="js/cartSubmission.js"></script>
+  <script src="js/product.js"></script>
   <script src="js/app.js" type="text/javascript"></script>
 
 
@@ -103,7 +104,7 @@
             <div class="option">
               <label>
                 <input type="checkbox" checked="checked" value="1">{{items}}
-              </label>  
+              </label>
             </div>
             {{/each}}
           </div>
@@ -127,21 +128,25 @@
       <div class="item-info">
         <h3>{{item.product.title}}</h3>
         <p class="lineitem-price lead"></p>
-        <p class="lineitem-description lead"><span class="price">{{item.product.price}}</span> | {{item.product.description}}</p>  
+        <p class="lineitem-description lead"><span class="price">{{item.product.price}}</span> | {{item.product.description}}</p>
       </div>
-      
+
       <form class="update-line-item">
-        <label>Quantity: 
+        <label>Quantity:
           <input type="number" value="{{item.quantity}}" class="line-item-quantity">
         </label>
         <input class="btn btn-default" type="submit" id="{{item.id}}" value="Update Item" >
       </form>
       <hr>
     </div>
-
   </script>
 
-
+  <!-- about Bob template -->
+  <script type="text/x-handlebars-template" id="bobs-bagels-menu">
+    <div>
+      <h2></h2>
+    </div>
+  </script>
 
 </body>
 </html>

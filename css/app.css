@@ -60,6 +60,52 @@ nav.navbar {
   background: #000;
   background: rgba(0,0,0,0.8);
 }
+
+a.navbar-brand { color: white; }
+a.navbar-brand:hover { font-weight: bold; }
+nav.navbar ul li a {
+  color: white;
+}
+a.navbar:hover {
+  background-color: green;
+}
+
+/* HEADER */
+/*——————————————————————————————————————*/
+.header {
+  height: 160px;
+  background-image: url("http://www.eggnerd.com/wp-content/uploads/2013/09/beez10.jpg");
+  font-family: 'Pacifico', cursive;
+}
+.header h1{ font-size: 70px; }
+
+
+/* PRODUCTS Listing */
+/*——————————————————————————————————————*/
+
+.menu_item {
+  border-bottom: 1px solid #EBDCC4;
+  background: rgb(254,255,255); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(254,255,255,1) 82%, rgba(255,251,244,1) 99%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(82%,rgba(254,255,255,1)), color-stop(99%,rgba(255,251,244,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(254,255,255,1) 82%,rgba(255,251,244,1) 99%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(254,255,255,1) 82%,rgba(255,251,244,1) 99%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(254,255,255,1) 82%,rgba(255,251,244,1) 99%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(254,255,255,1) 82%,rgba(255,251,244,1) 99%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#fffbf4',GradientType=0 ); /* IE6-9 */
+}
+
+div.menu-image{
+  width: 200px;
+  height: 100px;
+}
+
+.menu_item img {
+  width: 100%;
+  height: auto;
+  margin-right: 10px;
+  margin-top: 0;
+
 a.navbar-brand { 
   color: white; 
   font-weight: normal;
