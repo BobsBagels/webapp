@@ -4,7 +4,8 @@ var Router = Backbone.Router.extend({
   routes: {
     '': 'menu',
     'login': 'login',
-    'checkout': 'checkout'
+    'checkout': 'checkout',
+    'about': 'about'
   },
 
   menu: function(){
