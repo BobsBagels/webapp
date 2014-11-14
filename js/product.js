@@ -5,7 +5,6 @@ Product.getOptions = function(object){
     $(category.products).each(function(index,product){
       $.ajax({ url: 'http://localhost:3000/products/'+product.id, type: 'GET',})
       .done(function(response){
-        //debugger;
         trace(response.options);
       })
       .fail(function(jqXHR, textStatus, errorThrown){

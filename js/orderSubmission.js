@@ -1,9 +1,8 @@
 OrderSubmission = {}
 
 OrderSubmission.processOrder = function(token, form){
-  
+
   trace(token, form);
-  debugger;
 
   $.ajax({
     url: 'https://bobsapi.herokuapp.com/orders',
@@ -18,6 +17,6 @@ OrderSubmission.processOrder = function(token, form){
   }).fail(function(jqXHR, textStatus, errorThrown){
     trace(jqXHR, textStatus, errorThrown);
   });
-  
-  
+
+
 };

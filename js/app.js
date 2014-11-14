@@ -83,7 +83,6 @@ $(document).ready(function(){
       trace(jqXHR, textStatus, errorThrown);
     })
     .always(function() {
-      // trace("complete");
     });
 
   }

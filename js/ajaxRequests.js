@@ -1,9 +1,8 @@
 
   // POST::CART, SAVE THE CART ID TO A BROWSER SESSION COOKIE
   // ————————————————————————————————————————————————————
-  
+
   $.ajax({
-    //url: 'https://bobsapi.herokuapp.com/carts',
     //url: 'https://bobsapi.herokuapp.com/carts',
     type: 'POST',
     data: { cart:{} }
@@ -12,11 +11,11 @@
   }).fail(function(jqXHR, textStatus, errorThrown){
     trace(jqXHR, textStatus, errorThrown);
   });
-  
+
 
   // POST::Order = {}
   // ————————————————————————————————————————————————————
-  
+
   $.ajax({
     url: 'https://bobsapi.herokuapp.com/orders',
     type: 'POST',
@@ -35,11 +34,11 @@
   }).fail(function(jqXHR, textStatus, thrownError){
     trace(jqXHR, textStatus, thrownError);
   });
-  
+
 
 
   // post to a new line_item
-  
+
   $.ajax({
     url: 'https://bobsapi.herokuapp.com/line_items',
     type: 'POST',
@@ -55,10 +54,10 @@
   }).fail(function(jqXHR, textStatus, errorThrown){
     trace(jqXHR, textStatus, errorThrown);
   });
-  
+
 
   // POST options for a line_item.
-  
+
   $.ajax({
     url: 'https://bobsapi.herokuapp.com/options',
     type: 'POST',
@@ -83,14 +82,14 @@
   }).fail(function(jqXHR, textStatus, errorThrown){
 
   });
-  
-  
+
+
 
 
   // POST a new cart
   // response contains the id of the cart, which you'll need to save in a cookie
-  // so the user can 
-  
+  // so the user can
+
   $.ajax({
     url: 'https://bobsapi.herokuapp.com/carts',
     type: 'POST',
@@ -108,10 +107,10 @@
   }).fail(function(jqXHR, textStatus, errorThrown){
     // trace(jqXHR, textStatus, errorThrown);
   });
-    
-  
+
+
   // get all line_items
-  
+
   $.ajax({
     url: 'https://bobsapi.herokuapp.com/line_items',
     type: 'GET',
@@ -120,7 +119,7 @@
     },
     success: function(data, textStatus, jqXHR){
       trace(data,textStatus, jqXHR, "successful get!!");
-    }, 
+    },
     error: function(jqXHR,error,exception){
       trace(jqXHR,error,exception);
     },
@@ -129,13 +128,13 @@
   }).fail(function(jqXHR, textStatus, thrownError){
     trace(jqXHR, textStatus, thrownError);
   });
-  
 
-  
-  
+
+
+
 
   // GET all the carts -> admin only
-  
+
   $.ajax({
     // url: 'https://bobsapi.herokuapp.com/carts',
     url: 'https://bobsapi.herokuapp.com/carts',
@@ -145,7 +144,7 @@
     },
     success: function(data, textStatus, jqXHR){
       trace(data,textStatus, jqXHR, "successful get!!");
-    }, 
+    },
     error: function(jqXHR,error,exception){
       trace(jqXHR,error,exception);
     },
@@ -154,11 +153,11 @@
   }).fail(function(jqXHR, textStatus, thrownError){
     trace(jqXHR, textStatus, thrownError);
   });
-  
+
 
   // GET all products, can also append '/#{:id}' to the route to get a single product
   // ————————————————————————————————————————————————————
-  
+
   $.ajax({
     url: 'https://bobsapi.herokuapp.com/products',
     type: 'GET',
@@ -167,7 +166,7 @@
     },
     success: function(data, textStatus, jqXHR){
       trace(data,textStatus, jqXHR, "successful get!!");
-    }, 
+    },
     error: function(jqXHR,error,exception){
       trace(jqXHR,error,exception);
     },
@@ -177,12 +176,12 @@
     trace(jqXHR, textStatus, thrownError);
     router.navigate("home",{trigger: true});
   });
-   
+
 
 
 // Loop through categories & products to get all the options
   // ————————————————————————————————————————————————————
-  
+
    menu: function(){
     $.ajax({ url: 'http://localhost:3000/categories', type: 'GET',})
     .done(function(response){
